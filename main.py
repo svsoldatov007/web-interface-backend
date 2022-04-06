@@ -17,6 +17,7 @@ def get_attribute(object, name):    # возвращает значение по
 def update_inf():
     # удаляем всё предыдущее
     response = str(requests.get('http://127.0.0.1:8000/SystemInfs/').content).split('},')
+    print(response)
     if response != ["b'[]'"]:   # if there are some objects in the database
         for old_inf in response:
             requests.delete('http://127.0.0.1:8000/SystemInfs/'+str(get_attribute(old_inf, "id")))
